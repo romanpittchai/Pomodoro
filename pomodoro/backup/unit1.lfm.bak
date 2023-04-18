@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 233
+  Height = 587
+  Top = 274
+  Width = 843
+  Caption = 'Pomodoro Timer'
+  ClientHeight = 587
+  ClientWidth = 843
+  Font.Height = -27
+  Font.Name = 'Sans'
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  object Button1: TButton
+    Left = 728
+    Height = 80
+    Top = 24
+    Width = 91
+    Caption = 'Run'
+    Color = 16218112
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrCenter
+    AnchorSideBottom.Side = asrCenter
+    Left = 394
+    Height = 1
+    Top = 285
+    Width = 1
+    Anchors = []
+    Font.Height = -96
+    Font.Name = 'Sans'
+    Layout = tlCenter
+    ParentBidiMode = False
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 24
+    Height = 1
+    Top = 24
+    Width = 1
+    ParentColor = False
+    OnClick = Label2Click
+  end
+  object Button2: TButton
+    Left = 616
+    Height = 80
+    Top = 24
+    Width = 91
+    Caption = 'Stop'
+    OnClick = Timer1StopTimer
+    TabOrder = 1
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    OnStartTimer = Timer1StartTimer
+    OnStopTimer = Timer1StopTimer
+    Left = 792
+    Top = 528
+  end
+end

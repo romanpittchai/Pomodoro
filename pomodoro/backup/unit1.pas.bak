@@ -1,0 +1,118 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Timer1: TTimer;
+    procedure Button1Click(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Label2Click(Sender: TObject);
+    procedure Timer1StartTimer(Sender: TObject);
+    procedure Timer1StopTimer(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+  iterator: Integer;
+  iterator2: Integer;
+  index: Boolean;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Timer1StartTimer(Sender: TObject);
+// Старт таймера.
+
+begin
+  Label2.Caption := 'Run';
+  iterator := 0;
+  iterator2 := 0;
+end;
+
+procedure TForm1.Timer1StopTimer(Sender: TObject);
+//Стоп таймера.
+
+begin
+  Timer1.Enabled := False;
+  iterator := 0;
+  iterator2 := 0;
+  Label1.Caption := '00:00:00';
+  Label2.Caption := 'Stop';
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+// Таймер на 25 минут.
+
+begin
+  Label1.Caption := FormatDateTime('hh:nn:ss', iterator / SecsPerDay);
+  iterator := iterator + 1;
+  if index = True then
+    iterator2 := 15
+  else if index = False then
+    iterator2 := 3;
+
+
+  if iterator > 15 then
+    Timer1.Enabled := False and
+    Label1.Caption := '00:00:00';
+   // iterator := 0
+   // index := False;
+    //Timer1.Enabled := True;
+end;
+
+procedure TForm1.Edit1Change(Sender: TObject);
+// Поле, которое заполняется таймером.
+
+begin
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+// Кнопка для остановки таймера.
+
+begin
+  Timer1.Enabled := True;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+// Для создания формы.
+
+begin
+  iterator := 0;
+  iterator2 := 15;
+  index := True;
+  Label1.Left := (Form1.Width - Label1.Width) div 2;
+  Label1.Top := (Form1.Height - Label1.Height) div 2;
+  Label1.Caption := '00:00:00';
+  Label2.Caption := 'Sleep';
+end;
+
+procedure TForm1.Label2Click(Sender: TObject);
+begin
+
+end;
+
+end.
+
