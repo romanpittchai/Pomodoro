@@ -38,6 +38,7 @@ type
 var
   Form1: TForm1;
   Button2Clicked: Boolean;
+  Process1: TProcess;
 
 
 implementation
@@ -47,28 +48,28 @@ implementation
 { TForm1 }
 
 procedure TForm1.Timer1StartTimer(Sender: TObject);
-// Старт таймера.
+// Старт таймера. // Старт таймера. Timer start.
 
 begin
   if bol = True then
     begin
       Label2.Caption := 'Run';
-      duration := 7;// * 60; // Работа 25 минут
+      duration := 25 * 60; // Работа 25 минут. Work 25 minutes.
       bol := False;
     end
   else
     begin
       Label2.Caption := 'Sleep';
-      duration := 5;// * 60; // Отдых 5 минут
+      duration := 5 * 60; // Отдых 5 минут. Rest 5 minutes.
       pomidoro := pomidoro + 1;
       Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
       bol := True;
-      mciSendString(PChar('Play "sound\signal.mid"'),nil,100,100);
+      mciSendString(PChar('Play "sound\signal.mid"'),nil,0,0);
     end;
 end;
 
 procedure TForm1.Timer1StopTimer(Sender: TObject);
-//Стоп таймера.
+// Стоп таймера. Stop Timer.
 
 begin
   duration := 0;
@@ -82,12 +83,12 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
-// Таймер на 25 минут.
+// Таймер на 25 минут. Timer for 25 minutes.
 
 begin
   Label1.Caption := FormatDateTime('hh:nn:ss', duration / SecsPerDay);
 
-  if pomidoro = 2 then
+  if pomidoro = 4 then
     begin
         Timer1.Enabled := False;
         bol := True;
@@ -107,13 +108,15 @@ end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
 // Поле, которое заполняется таймером.
+// The field that is filled in by the timer.
 
 begin
 
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
-// Кнопка для старт-стоп таймера.
+// Кнопка для старта таймера.
+// The button for the start timer.
 
 begin
   Timer1.Enabled := True;
@@ -124,7 +127,8 @@ begin
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-// Кнопка для старт-стоп таймера.
+// Кнопка для остановки таймера.
+// A button to stop the timer.
 
 begin
   Button2Clicked := True;
@@ -134,7 +138,7 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
-  // Для создания формы.
+// Для создания формы. To create a form.
 
 begin
   Label1.Left := (Form1.Width - Label1.Width) div 2;
@@ -149,14 +153,15 @@ begin
 end;
 
 procedure TForm1.Label2Click(Sender: TObject);
-// Поле для служебной информации
+// Поле для служебной информации.
+// Field for service information.
 
 begin
 
 end;
 
 procedure TForm1.Label3Click(Sender: TObject);
-// Для временных отметок помидорок
+// Для временных отметок помидорок. For timestamps.
 begin
 
 end;
