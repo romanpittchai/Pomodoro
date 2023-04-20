@@ -39,7 +39,6 @@ var
   Form1: TForm1;
   Button2Clicked: Boolean;
 
-
 implementation
 
 {$R *.lfm}
@@ -101,8 +100,6 @@ begin
         Label1.Caption := '00:00:00';
         Timer1.Enabled := True;
     end;
-
-
 end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
@@ -121,8 +118,6 @@ begin
   Timer1.Enabled := True;
   pomidoro := 0;
   Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
-
-
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
