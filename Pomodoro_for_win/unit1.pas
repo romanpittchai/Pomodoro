@@ -38,7 +38,6 @@ type
 var
   Form1: TForm1;
   Button2Clicked: Boolean;
-  Process1: TProcess;
 
 
 implementation
