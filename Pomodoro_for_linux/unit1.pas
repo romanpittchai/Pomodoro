@@ -40,7 +40,6 @@ var
   Button2Clicked: Boolean;
   Process1: TProcess;
 
-
 implementation
 
 {$R *.lfm}
