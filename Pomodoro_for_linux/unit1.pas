@@ -5,7 +5,8 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, process;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  process, Unit2;
 
 type
 
@@ -14,12 +15,14 @@ type
   TForm1 = class(TForm)
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Timer1: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Label2Click(Sender: TObject);
@@ -32,11 +35,15 @@ type
     bol: Boolean;
     pomidoro: Integer;
   public
-
+    duration_min: Integer; // Длина томатов.
+    pomodoro_num: Integer; // Кол-во томатов.
+    rest_length: Integer;  // Длина отдыха.
+    intervals_num: Integer; // Кол-во интервалов.
   end;
 
 var
   Form1: TForm1;
+  Form2: TSettings;
   Button2Clicked: Boolean;
   Process1: TProcess;
 
@@ -136,6 +143,24 @@ begin
   Timer1.Enabled := False;
 end;
 
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  // Создаём новый экземпляр формы.
+  // Creating a new instance of the form.
+
+  Form2 := TSettings.Create(Self);
+
+  // Открываем форму в модальном режиме.
+  // Opening the form in modal mode.
+
+  Form2.ShowModal;
+
+  // Освобождаем экземляр формы.
+  // Free form.
+
+  Form2.Free;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 // Для создания формы. To create a form.
 
@@ -146,6 +171,7 @@ begin
   Label1.Caption := '00:00:00';
   Label2.Caption := 'Sleep';
   pomidoro := 0;
+  duration_min := 25;
   Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
   bol := True;
   Button2Clicked := False;
