@@ -31,14 +31,9 @@ type
     procedure Timer1StopTimer(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
-    duration: Integer;
-    bol: Boolean;
-    pomidoro: Integer;
+    { private declarations }
   public
-    duration_min: Integer; // Длина томатов.
-    pomodoro_num: Integer; // Кол-во томатов.
-    rest_length: Integer;  // Длина отдыха.
-    intervals_num: Integer; // Кол-во интервалов.
+    { public declarations }
   end;
 
 var
@@ -46,6 +41,13 @@ var
   Form2: TSettings;
   Button2Clicked: Boolean;
   Process1: TProcess;
+  pomodoro_num: Integer; // Кол-во томатов.
+  duration_min: Integer; // Длина томатов.
+  rest_length: Integer;  // Длина отдыха.
+  //intervals_num: Integer; // Кол-во интервалов.
+  duration: Integer;
+  bol: Boolean;
+  pomidoro: Integer;
 
 implementation
 
@@ -60,21 +62,21 @@ begin
   if bol = True then
     begin
       Label2.Caption := 'Run';
-      duration := 25 * 60; // Работа 25 минут. Work 25 minutes.
+      duration := duration_min * 60; // Работа "duration_min" минут. Work "duration_min" minutes.
       bol := False;
     end
   else
     begin
       Label2.Caption := 'Sleep';
-      duration := 5 * 60; // Отдых 5 минут. Rest 5 minutes.
+      duration := rest_length * 60; // Отдых "rest_length" минут. Rest "rest_length" minutes.
       pomidoro := pomidoro + 1;
       Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
       bol := True;
-      Process1 := TProcess.Create(nil);
-      Process1.Executable := 'aplay';
-      Process1.Parameters.Add('sound/signal.mid');
-      Process1.Execute;
-      Process1.Free;
+      //Process1 := TProcess.Create(nil);
+      //Process1.Executable := 'aplay';
+      //Process1.Parameters.Add('sound/signal.mid');
+      //Process1.Execute;
+      //Process1.Free;
     end;
 end;
 
@@ -89,6 +91,7 @@ begin
     begin
       bol := True;
       Button2Clicked := False;
+      Button3.Enabled := True;
     end;
 end;
 
@@ -98,9 +101,10 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 begin
   Label1.Caption := FormatDateTime('hh:nn:ss', duration / SecsPerDay);
 
-  if pomidoro = 4 then
+  if pomidoro = pomodoro_num then
     begin
         Timer1.Enabled := False;
+        Button3.Enabled := True;
         bol := True;
     end;
 
@@ -130,6 +134,7 @@ begin
   Timer1.Enabled := True;
   pomidoro := 0;
   Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
+  Button3.Enabled := False;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
@@ -152,13 +157,12 @@ begin
 
   // Открываем форму в модальном режиме.
   // Opening the form in modal mode.
-
   Form2.ShowModal;
 
   // Освобождаем экземляр формы.
   // Free form.
-
   Form2.Free;
+  //GetSettings;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -172,9 +176,13 @@ begin
   Label2.Caption := 'Sleep';
   pomidoro := 0;
   duration_min := 25;
+  pomodoro_num := 4;
+  rest_length := 5;
+  intervals_num := 1;
   Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
   bol := True;
   Button2Clicked := False;
+  Button3.Enabled := True;
 end;
 
 procedure TForm1.Label2Click(Sender: TObject);
@@ -193,4 +201,3 @@ begin
 end;
 
 end.
-

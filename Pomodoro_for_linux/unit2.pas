@@ -22,17 +22,21 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    procedure Edit4Change(Sender: TObject);
+    Timer1: TTimer;
+    procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Label1Click(Sender: TObject);
   private
-
+    { private declarations }
   public
-
+    { public declarations }
   end;
 
 var
   Settings: TSettings;
+  pomodoro_form2: Integer; // Кол-во томатов.
+  duration_form2: Integer; // Длина томатов.
+  rest_length_form2: Integer; // Длина отдыха.
+  intervals_num_form2: Integer; // Кол-во интервалов.
 
 implementation
 
@@ -41,18 +45,27 @@ implementation
 { TSettings }
 
 procedure TSettings.FormCreate(Sender: TObject);
-begin
+// Для создания формы. To create a form.
 
+begin
+  //Timer1.Enabled := False;
+
+  Edit1.Text := IntToStr(4);
+  Edit2.Text := IntToStr(25);
+  Edit3.Text := IntToStr(5);
+  Edit4.Text := IntToStr(1);
 end;
 
-procedure TSettings.Edit4Change(Sender: TObject);
+procedure TSettings.Button1Click(Sender: TObject);
+// Кнопка для сохранения настроек.
+// A button to save settings.
+
 begin
-
-end;
-
-procedure TSettings.Label1Click(Sender: TObject);
-begin
-
+  duration_form2 := StrToInt(Edit1.Text);
+  pomodoro_form2 := StrToInt(Edit2.Text);
+  rest_length_form2 :=  StrToInt(Edit3.Text);
+  intervals_num_form2 := StrToInt(Edit4.Text);
+  Close;
 end;
 
 end.
