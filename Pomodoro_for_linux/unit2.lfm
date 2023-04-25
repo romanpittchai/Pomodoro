@@ -1,92 +1,73 @@
 object Settings: TSettings
-  Left = -894
-  Height = 515
-  Top = 230
-  Width = 676
+  Left = 1805
+  Height = 392
+  Top = 275
+  Width = 526
   BorderStyle = bsSingle
   Caption = 'Settings'
-  ClientHeight = 515
-  ClientWidth = 676
+  ClientHeight = 392
+  ClientWidth = 526
   Font.Height = 15
   OnCreate = FormCreate
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '2.0.10.0'
   object Button1: TButton
-    Left = 272
+    Left = 184
     Height = 80
-    Top = 392
+    Top = 272
     Width = 112
     Caption = 'OK'
     OnClick = Button1Click
     TabOrder = 0
   end
   object Edit1: TEdit
-    Left = 320
-    Height = 23
-    Top = 72
+    Left = 256
+    Height = 34
+    Top = 64
     Width = 151
     TabOrder = 1
   end
   object Edit2: TEdit
-    Left = 320
-    Height = 23
-    Top = 128
+    Left = 256
+    Height = 34
+    Top = 118
     Width = 151
     TabOrder = 2
   end
   object Edit3: TEdit
-    Left = 320
-    Height = 23
-    Top = 184
+    Left = 256
+    Height = 34
+    Top = 174
     Width = 151
     TabOrder = 3
   end
-  object Edit4: TEdit
-    Left = 320
-    Height = 23
-    Top = 240
-    Width = 151
-    TabOrder = 4
-  end
   object Label1: TLabel
-    Left = 136
-    Height = 15
-    Top = 80
-    Width = 111
+    Left = 64
+    Height = 16
+    Top = 72
+    Width = 156
     Caption = 'Number of tomatoes'
     Font.Height = 15
     ParentColor = False
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 136
-    Height = 15
-    Top = 136
-    Width = 112
+    Left = 61
+    Height = 16
+    Top = 128
+    Width = 159
     Caption = 'Tomato Length (min)'
     Font.Height = 15
     ParentColor = False
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 136
-    Height = 15
-    Top = 192
-    Width = 91
+    Left = 64
+    Height = 16
+    Top = 184
+    Width = 133
     Caption = 'Rest length (min)'
     Font.Height = 15
     ParentColor = False
     ParentFont = False
-  end
-  object Label4: TLabel
-    Left = 136
-    Height = 15
-    Top = 248
-    Width = 105
-    Caption = 'Number of intervals'
-    ParentColor = False
-  end
-  object Timer1: TTimer
-    Left = 18
-    Top = 459
   end
 end

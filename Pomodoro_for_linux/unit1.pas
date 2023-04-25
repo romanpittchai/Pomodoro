@@ -23,10 +23,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
-    procedure Edit1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
-    procedure Label3Click(Sender: TObject);
     procedure Timer1StartTimer(Sender: TObject);
     procedure Timer1StopTimer(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -44,7 +41,6 @@ var
   pomodoro_num: Integer; // Кол-во томатов.
   duration_min: Integer; // Длина томатов.
   rest_length: Integer;  // Длина отдыха.
-  //intervals_num: Integer; // Кол-во интервалов.
   duration: Integer;
   bol: Boolean;
   pomidoro: Integer;
@@ -62,21 +58,24 @@ begin
   if bol = True then
     begin
       Label2.Caption := 'Run';
-      duration := duration_min * 60; // Работа "duration_min" минут. Work "duration_min" minutes.
+      // Работа "duration_min" минут. Work "duration_min" minutes.
+      duration := duration_min * 60;
       bol := False;
     end
   else
     begin
       Label2.Caption := 'Sleep';
-      duration := rest_length * 60; // Отдых "rest_length" минут. Rest "rest_length" minutes.
+      // Отдых "rest_length" минут. Rest "rest_length" minutes.
+      duration := rest_length * 60;
       pomidoro := pomidoro + 1;
       Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
       bol := True;
-      //Process1 := TProcess.Create(nil);
-      //Process1.Executable := 'aplay';
-      //Process1.Parameters.Add('sound/signal.mid');
-      //Process1.Execute;
-      //Process1.Free;
+      // Производство звука. Play sound.
+      Process1 := TProcess.Create(nil);
+      Process1.Executable := 'aplay';
+      Process1.Parameters.Add('sound/signal.mid');
+      Process1.Execute;
+      Process1.Free;
     end;
 end;
 
@@ -87,6 +86,7 @@ begin
   duration := 0;
   Label1.Caption := '00:00:00';
   Label2.Caption := 'Sleep';
+
   if Button2Clicked = True then
     begin
       bol := True;
@@ -116,14 +116,6 @@ begin
         Label1.Caption := '00:00:00';
         Timer1.Enabled := True;
     end;
-end;
-
-procedure TForm1.Edit1Change(Sender: TObject);
-// Поле, которое заполняется таймером.
-// The field that is filled in by the timer.
-
-begin
-
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -162,7 +154,14 @@ begin
   // Освобождаем экземляр формы.
   // Free form.
   Form2.Free;
-  //GetSettings;
+
+  if (pomodoro_form2 > 0) and (duration_form2 > 0) and
+     (rest_length_form2 > 0) then
+    begin
+      pomodoro_num := pomodoro_form2;
+      duration_min := duration_form2;
+      rest_length := rest_length_form2;
+    end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -178,26 +177,10 @@ begin
   duration_min := 25;
   pomodoro_num := 4;
   rest_length := 5;
-  intervals_num := 1;
   Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
   bol := True;
   Button2Clicked := False;
   Button3.Enabled := True;
-end;
-
-procedure TForm1.Label2Click(Sender: TObject);
-// Поле для служебной информации.
-// Field for service information.
-
-begin
-
-end;
-
-procedure TForm1.Label3Click(Sender: TObject);
-// Для временных отметок помидорок. For timestamps.
-
-begin
-
 end;
 
 end.
