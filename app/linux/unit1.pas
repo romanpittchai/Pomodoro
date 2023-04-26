@@ -51,6 +51,15 @@ implementation
 
 { TForm1 }
 
+procedure PlaySound;
+  begin
+    Process1 := TProcess.Create(nil);
+    Process1.Executable := 'cvlc';
+    Process1.Parameters.Add('sound/signal.mp3');
+    Process1.Execute;
+    Process1.Free;
+  end;
+
 procedure TForm1.Timer1StartTimer(Sender: TObject);
 // Старт таймера. Timer start.
 
@@ -61,6 +70,10 @@ begin
       // Работа "duration_min" минут. Work "duration_min" minutes.
       duration := duration_min * 60;
       bol := False;
+      if Button3.Enabled = False then
+        begin
+          PlaySound();
+        end;
     end
   else
     begin
@@ -70,12 +83,7 @@ begin
       pomidoro := pomidoro + 1;
       Label3.Caption := IntToStr(pomidoro) + ' pomodoro';
       bol := True;
-      // Производство звука. Play sound.
-      Process1 := TProcess.Create(nil);
-      Process1.Executable := 'aplay';
-      Process1.Parameters.Add('sound/signal.mid');
-      Process1.Execute;
-      Process1.Free;
+      PlaySound();
     end;
 end;
 
@@ -86,7 +94,6 @@ begin
   duration := 0;
   Label1.Caption := '00:00:00';
   Label2.Caption := 'Sleep';
-
   if Button2Clicked = True then
     begin
       bol := True;
