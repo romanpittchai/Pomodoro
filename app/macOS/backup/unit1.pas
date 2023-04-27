@@ -54,7 +54,7 @@ implementation
 procedure PlaySound;
   begin
     Process1 := TProcess.Create(nil);
-    Process1.Executable := 'afplay';
+    Process1.Executable := 'play';
     Process1.Parameters.Add('sound/signal.mp3');
     Process1.Execute;
     Process1.Free;
