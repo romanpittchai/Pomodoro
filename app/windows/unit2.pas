@@ -52,8 +52,6 @@ procedure TSettings.FormCreate(Sender: TObject);
 // Для создания формы. To create a form.
 
 begin
-  //Timer1.Enabled := False;
-
   Edit1.Text := IntToStr(4);
   Edit2.Text := IntToStr(25);
   Edit3.Text := IntToStr(5);
