@@ -50,7 +50,7 @@ _macOS:_
 ---
 
 ## Автор проекта
-_Богатырев Роман
+_Богатырев Роман_
 
 ---
 
@@ -107,7 +107,7 @@ The project is compiled either from lazarus or using fpc.
 ---
 
 ## Author of the project
-_Bogatyrev Roman
+_Bogatyrev Roman_
 
 ---
 
