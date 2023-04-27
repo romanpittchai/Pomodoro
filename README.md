@@ -111,4 +111,4 @@ _Bogatyrev Roman_
 
 ---
 
-> ***_Note:_*** _ the project uses the MIT License._ 
+> ***_Note:_*** _the project uses the MIT License._ 
