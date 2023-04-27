@@ -57,6 +57,7 @@ begin
   Edit1.Text := IntToStr(4);
   Edit2.Text := IntToStr(25);
   Edit3.Text := IntToStr(5);
+  Button1.Left := (Settings.Width - Button1.Width) div 2;
 end;
 
 procedure TSettings.Button1Click(Sender: TObject);

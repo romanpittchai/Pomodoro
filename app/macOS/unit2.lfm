@@ -1,7 +1,7 @@
 object Settings: TSettings
-  Left = -1439
+  Left = -1295
   Height = 392
-  Top = 379
+  Top = 301
   Width = 516
   BorderStyle = bsSingle
   Caption = 'Settings'
@@ -16,7 +16,9 @@ object Settings: TSettings
     Top = 272
     Width = 112
     Caption = 'OK'
+    Font.Height = 20
     OnClick = Button1Click
+    ParentFont = False
     TabOrder = 0
   end
   object Edit1: TEdit
@@ -41,32 +43,32 @@ object Settings: TSettings
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 64
-    Height = 15
-    Top = 72
-    Width = 111
+    Left = 72
+    Height = 20
+    Top = 67
+    Width = 139
     Caption = 'Number of tomatoes'
-    Font.Height = 15
+    Font.Height = 20
     ParentColor = False
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 61
-    Height = 15
-    Top = 128
-    Width = 112
+    Left = 72
+    Height = 20
+    Top = 121
+    Width = 139
     Caption = 'Tomato Length (min)'
-    Font.Height = 15
+    Font.Height = 20
     ParentColor = False
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 64
-    Height = 15
-    Top = 184
-    Width = 91
+    Left = 72
+    Height = 20
+    Top = 174
+    Width = 113
     Caption = 'Rest length (min)'
-    Font.Height = 15
+    Font.Height = 20
     ParentColor = False
     ParentFont = False
   end
