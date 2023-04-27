@@ -1,5 +1,5 @@
 object Settings: TSettings
-  Left = -1447
+  Left = -1302
   Height = 392
   Top = 312
   Width = 516
