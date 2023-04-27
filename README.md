@@ -54,7 +54,7 @@ _Богатырев Роман_
 
 ---
 
-> ***_Примечание:_***  _проект использует MIT License.
+> ***_Примечание:_***  _проект использует MIT License._
 
 _eng_
 
@@ -111,4 +111,4 @@ _Bogatyrev Roman_
 
 ---
 
-> ***_Note:_*** _ the project uses the MIT License.
+> ***_Note:_*** _ the project uses the MIT License._ 
