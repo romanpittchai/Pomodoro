@@ -55,3 +55,60 @@ _Богатырев Роман
 ---
 
 > ***_Примечание:_***  _проект использует MIT License.
+
+_eng_
+
+## Description
+
+The **Pomodoro-Timer** project is a small project created mainly for yourself and for people who need a simple tomato timer.
+By default, the timer has four tomatoes for 25 minutes each, and 5 minutes of rest in between. At the end of each tomato or rest,
+a sound signal (alert) is played. 
+
+There are 3 buttons on the main form:
+
+- Stop - stop the timer;
+- Run - start the timer;
+- Settings - timer settings.
+
+The timer settings include:
+
+- Number of tomatoes - the number of tomatoes that you can choose yourself;
+- Tomato Length (min) - length of tomatoes in minutes;
+- Rest length (min) - rest length in minutes;
+
+The timer status (Sleep, Run) is displayed in the upper left corner of the form. The number
+of tomatoes that have passed is reflected at the bottom.
+
+---
+
+## Technical description
+
+The project is implemented using free pascal and lazarus. 
+Audio playback is the only reason why versions differ across platforms.
+The difference is small, and it boils down to how to reproduce the sound. Since the project is quite small,
+the idea came to mind to divide the versions and in each of the versions to implement (in my opinion) the fastest, easiest and
+most practical way to reproduce the audio signal. 
+
+_windows:_
+In this case, the MMSystem library (the PlaySound procedure) was used. 
+
+_linux:_
+The process library and cvlc (PlaySound procedure) were used. Therefore, for linux and BSD versions, you need an installed
+VLC media player. 
+
+_macOS:_
+The process library (the PlaySound procedure) was used. It is necessary to check the operation of afplay.
+
+The sound file is located in the sound folder and has the .mp3 format. In fact, you can throw any short audio signal there,
+of your choice, giving it the name signal.mp3.
+
+The project is compiled either from lazarus or using fpc.
+
+---
+
+## Author of the project
+_Bogatyrev Roman
+
+---
+
+> ***_Note:_*** _ the project uses the MIT License.
