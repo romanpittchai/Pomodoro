@@ -1,0 +1,75 @@
+object Settings: TSettings
+  Left = 1760
+  Height = 392
+  Top = 341
+  Width = 516
+  BorderStyle = bsSingle
+  Caption = 'Settings'
+  ClientHeight = 392
+  ClientWidth = 516
+  Font.Height = 15
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object Button1: TButton
+    Left = 184
+    Height = 80
+    Top = 272
+    Width = 112
+    Caption = 'OK'
+    Font.Height = 20
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 256
+    Height = 34
+    Top = 64
+    Width = 151
+    TabOrder = 1
+  end
+  object Edit2: TEdit
+    Left = 256
+    Height = 34
+    Top = 118
+    Width = 151
+    TabOrder = 2
+  end
+  object Edit3: TEdit
+    Left = 256
+    Height = 34
+    Top = 174
+    Width = 151
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 72
+    Height = 16
+    Top = 64
+    Width = 156
+    Caption = 'Number of tomatoes'
+    Font.Height = 15
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 72
+    Height = 16
+    Top = 120
+    Width = 159
+    Caption = 'Tomato Length (min)'
+    Font.Height = 15
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 72
+    Height = 16
+    Top = 176
+    Width = 133
+    Caption = 'Rest length (min)'
+    Font.Height = 15
+    ParentColor = False
+    ParentFont = False
+  end
+end
