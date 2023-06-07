@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/bin/fpc" Date="1611610588"/>
-  <Params Value=" -MObjFPC -Scghi -Cg -O1 -gw2 -godwarfsets -gl -l -vewnhibq -Fi/media/pittchai/New/Dev/Pomodoro/app/linux/lib/x86_64-linux -Fu/usr/lib/lazarus/2.0.10/lcl/units/x86_64-linux/gtk2 -Fu/usr/lib/lazarus/2.0.10/lcl/units/x86_64-linux -Fu/usr/lib/lazarus/2.0.10/components/lazutils/lib/x86_64-linux -Fu/usr/lib/lazarus/2.0.10/packager/units/x86_64-linux -Fu/media/pittchai/New/Dev/Pomodoro/app/linux/ -FU/media/pittchai/New/Dev/Pomodoro/app/linux/lib/x86_64-linux/ -FE/media/pittchai/New/Dev/Pomodoro/app/linux/ -o/media/pittchai/New/Dev/Pomodoro/app/linux/PomodoroTimer -dLCL -dLCLgtk2 project1.lpr"/>
-</CONFIG>
